@@ -19,5 +19,9 @@
       "a0.0.2",
       "a0.0.1"
     ]
+  },
+  "ext-resources": {
+    "version": "21may26",
+    "url": "https://github.com/aviatorrob06/disx/releases/download/ext-resources-21may26/ext-resources.zip"
   }
 }
