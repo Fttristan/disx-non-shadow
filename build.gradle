@@ -3,8 +3,9 @@ plugins {
     id "dev.architectury.loom" version "+" apply false
 }
 
-def forgeOnly = providers.gradleProperty("forgeOnly").orElse("false").get().toBoolean()
-extensions.extraProperties.set("enabled_platforms", forgeOnly ? "forge" : (findProperty("enabled_platforms") ?: "fabric,forge,quilt"))
+def forgeOnly = System.getProperty("forgeOnly", "false").toBoolean()
+def enabledPlatforms = forgeOnly ? "forge" : (System.getProperty("enabled_platforms", "fabric,forge,quilt"))
+rootProject.ext.enabled_platforms = enabledPlatforms
 
 architectury {
     minecraft = rootProject.minecraft_version

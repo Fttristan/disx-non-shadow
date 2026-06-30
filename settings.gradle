@@ -7,7 +7,7 @@ pluginManagement {
     }
 }
 
-def forgeOnly = providers.gradleProperty("forgeOnly").orElse("false").get().toBoolean()
+def forgeOnly = System.getProperty("forgeOnly", "false").toBoolean()
 
 include("common")
 include("forge")
