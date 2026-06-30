@@ -7,9 +7,14 @@ pluginManagement {
     }
 }
 
+def forgeOnly = providers.gradleProperty("forgeOnly").orElse("false").get().toBoolean()
+
 include("common")
-include("fabric")
 include("forge")
-include("quilt")
+
+if (!forgeOnly) {
+    include("fabric")
+    include("quilt")
+}
 
 rootProject.name = "disx"

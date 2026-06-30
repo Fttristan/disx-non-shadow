@@ -80,6 +80,7 @@ processResources {
 
 shadowJar {
     exclude "architectury.common.json"
+    relocate 'com.fasterxml', 'disxshadowed.com.fasterxml'
 
     configurations = [project.configurations.shadowCommon]
     archiveClassifier = "dev-shadow"

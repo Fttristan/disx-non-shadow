@@ -112,6 +112,7 @@ processResources {
 }
 
 shadowJar {
+    relocate 'com.fasterxml', 'disxshadowed.com.fasterxml'
     configurations = [project.configurations.shadowBundle]
     archiveClassifier = 'dev-shadow'
 }

@@ -133,9 +133,7 @@ dependencies {
     //shadowDependencies 'dev.arbjerg:lava-common:+'
     shadowDependencies 'org.mozilla:rhino:+'
     shadowDependencies 'org.mozilla:rhino-engine:+'
-    shadowDependencies 'com.fasterxml.jackson.core:jackson-annotations:2.18.3'
-    shadowDependencies 'com.fasterxml.jackson.core:jackson-core:2.18.3'
-    shadowDependencies 'com.fasterxml.jackson.core:jackson-databind:2.18.3'
+
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-forge:${rootProject.forge_REI_version}"
 }
@@ -151,6 +149,8 @@ processResources {
 shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
+    exclude '**/module-info.class'
+    exclude 'com/fasterxml/jackson/**'
 
     relocate 'org.apache', 'disxshadowed.org.apache'
     relocate 'org.mozilla', 'disxshadowed.rhino'
