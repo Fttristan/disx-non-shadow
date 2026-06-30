@@ -4,7 +4,7 @@ plugins {
 }
 
 def forgeOnly = providers.gradleProperty("forgeOnly").orElse("false").get().toBoolean()
-rootProject.ext.enabled_platforms = forgeOnly ? "forge" : (findProperty("enabled_platforms") ?: "fabric,forge,quilt")
+exttensions.extraProperties.set("enabled_platforms", forgeOnly ? "forge" : (findProperty("enabled_platforms") ?: "fabric,forge,quilt"))
 
 architectury {
     minecraft = rootProject.minecraft_version
