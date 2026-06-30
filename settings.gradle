@@ -7,14 +7,7 @@ pluginManagement {
     }
 }
 
-def forgeOnly = System.getProperty("forgeOnly", "false").toBoolean()
-
 include("common")
 include("forge")
-
-if (!forgeOnly) {
-    include("fabric")
-    include("quilt")
-}
 
 rootProject.name = "disx"

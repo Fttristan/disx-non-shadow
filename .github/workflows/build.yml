@@ -52,7 +52,7 @@ jobs:
         env:
           GPR_USER: ${{ secrets.PKG_USER }}
           GPR_KEY: ${{ secrets.PKG_PASSWORD }}
-        run: ./gradlew -PforgeOnly=true :forge:build --no-daemon --stacktrace
+        run: ./gradlew :forge:build --no-daemon --stacktrace
 
       - name: Collect release assets
         id: assets
