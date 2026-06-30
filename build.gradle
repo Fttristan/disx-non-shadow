@@ -7,10 +7,6 @@ def forgeOnly = System.getProperty("forgeOnly", "false").toBoolean()
 def enabledPlatforms = forgeOnly ? "forge" : (System.getProperty("enabled_platforms", "fabric,forge,quilt"))
 rootProject.ext.enabled_platforms = enabledPlatforms
 
-architectury {
-    minecraft = rootProject.minecraft_version
-}
-
 subprojects {
     apply plugin: "dev.architectury.loom"
 
