@@ -99,11 +99,13 @@ dependencies {
     forgeRuntimeLibrary 'commons-logging:commons-logging:+'
     forgeRuntimeLibrary 'org.apache.httpcomponents:httpcore:+'
     forgeRuntimeLibrary group: 'com.grack', name: 'nanojson', version: '+'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.17.2'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.17.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+    implementation 'org.mozilla:rhino:+'
+    implementation 'org.mozilla:rhino-engine:+'
 
     include 'com.alibaba:fastjson:+'
-    //include 'com.fasterxml.jackson.core:jackson-annotations:+'
-    //include 'com.fasterxml.jackson.core:jackson-core:+'
-    //include 'com.fasterxml.jackson.core:jackson-databind:+'
     //include 'com.github.walkyst.JAADec-fork:jaadec-ext-aac:+'
     //include 'com.github.sealedtx:java-youtube-downloader:+'
     include group: 'org.json', name: 'json', version: '+'
@@ -120,11 +122,6 @@ dependencies {
     shadowDependencies 'commons-logging:commons-logging:+'
     shadowDependencies 'org.apache.httpcomponents:httpclient:+'
     shadowDependencies 'commons-io:commons-io:2.11.0'
-    shadowDependencies 'com.fasterxml.jackson.core:jackson-annotations:2.17.2'
-    shadowDependencies 'com.fasterxml.jackson.core:jackson-core:2.17.2'
-    shadowDependencies 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
-    shadowDependencies 'org.mozilla:rhino:+' 
-    shadowDependencies 'org.mozilla:rhino-engine:+' 
     shadowDependencies group: 'com.grack', name: 'nanojson', version: '+'
     //shadowDependencies 'dev.arbjerg:lavaplayer:+'
     //shadowDependencies 'dev.arbjerg:lavaplayer-natives:+'
@@ -145,10 +142,10 @@ shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
     exclude '**/module-info.class'
+    exclude 'com/fasterxml/**'
+    exclude 'org/mozilla/**'
 
     relocate 'org.apache', 'disxshadowed.org.apache'
-    relocate 'com.fasterxml', 'disxshadowed.com.fasterxml'
-    relocate 'org.mozilla', 'disxshadowed.org.mozilla'
     relocate 'com.grack', 'disxshadowed.com.grack'
 
     configurations = [project.configurations.shadowCommon, project.configurations.shadowDependencies]
