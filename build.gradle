@@ -87,8 +87,20 @@ allprojects {
         compileOnly 'org.mozilla:rhino-engine:+'
         implementation 'org.opentest4j:opentest4j:+'
 
-        implementation "dev.arbjerg:lavaplayer:+"
-        implementation "dev.lavalink.youtube:common:1.2.0"
+        implementation("dev.arbjerg:lavaplayer:+") {
+            exclude group: 'com.fasterxml.jackson.core', module: 'jackson-annotations'
+            exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+            exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+            exclude group: 'org.mozilla', module: 'rhino'
+            exclude group: 'org.mozilla', module: 'rhino-engine'
+        }
+        implementation("dev.lavalink.youtube:common:1.2.0") {
+            exclude group: 'com.fasterxml.jackson.core', module: 'jackson-annotations'
+            exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+            exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+            exclude group: 'org.mozilla', module: 'rhino'
+            exclude group: 'org.mozilla', module: 'rhino-engine'
+        }
         implementation 'org.apache.httpcomponents:httpclient:+'
         implementation 'commons-logging:commons-logging:+'
         implementation group: 'com.grack', name: 'nanojson', version: '+'
