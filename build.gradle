@@ -83,8 +83,8 @@ allprojects {
         implementation 'org.junit.jupiter:junit-jupiter-params:+'
         implementation 'org.junit.platform:junit-platform-commons:+'
         implementation 'org.junit.platform:junit-platform-engine:+'
-        compileOnly 'org.mozilla:rhino:+'
-        compileOnly 'org.mozilla:rhino-engine:+'
+        compileOnly 'org.mozilla:rhino:1.7.14'
+        compileOnly 'org.mozilla:rhino-engine:1.7.14'
         implementation 'org.opentest4j:opentest4j:+'
 
         implementation("dev.arbjerg:lavaplayer:+") {

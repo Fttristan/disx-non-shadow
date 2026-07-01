@@ -102,8 +102,8 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.17.2'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.17.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
-    implementation 'org.mozilla:rhino:+'
-    implementation 'org.mozilla:rhino-engine:+'
+    implementation 'org.mozilla:rhino:1.7.14'
+    implementation 'org.mozilla:rhino-engine:1.7.14'
 
     include 'com.alibaba:fastjson:+'
     //include 'com.github.walkyst.JAADec-fork:jaadec-ext-aac:+'
@@ -123,6 +123,8 @@ dependencies {
     shadowDependencies 'org.apache.httpcomponents:httpclient:+'
     shadowDependencies 'commons-io:commons-io:2.11.0'
     shadowDependencies group: 'com.grack', name: 'nanojson', version: '+'
+    shadowDependencies 'org.mozilla:rhino:1.7.14'
+    shadowDependencies 'org.mozilla:rhino-engine:1.7.14'
     //shadowDependencies 'dev.arbjerg:lavaplayer:+'
     //shadowDependencies 'dev.arbjerg:lavaplayer-natives:+'
     //shadowDependencies 'dev.arbjerg:lava-common:+'
@@ -142,11 +144,11 @@ shadowJar {
     exclude "fabric.mod.json"
     exclude "architectury.common.json"
     exclude '**/module-info.class'
-    exclude 'com/fasterxml/**'
-    exclude 'org/mozilla/**'
 
     relocate 'org.apache', 'disxshadowed.org.apache'
     relocate 'com.grack', 'disxshadowed.com.grack'
+    relocate 'org.mozilla', 'disxshadowed.org.mozilla'
+    relocate 'com.fasterxml', 'disxshadowed.com.fasterxml'
 
     configurations = [project.configurations.shadowCommon, project.configurations.shadowDependencies]
 
